@@ -67,16 +67,6 @@
         },
         // 目标是在 markdown 中打开外部链接。默认'_blank'（新窗口/标签）
         externalLinkTarget: '_blank', // default: '_blank' '_self'
-        // 插件
-        plugins: [
-            function (hook, vm) {
-                hook.doneEach(function () {
-                    DocsifySidebarCollapse.init({
-                        autoCollapse: true,
-                    });
-                });
-            }
-        ],
     }
 </script>
 <!-- docsify的js依赖 -->
@@ -99,11 +89,10 @@
 <script src="//fastly.jsdelivr.net/npm/prismjs@1.24.1/components/prism-java.min.js"></script>
 <script src="//fastly.jsdelivr.net/npm/prismjs@1.24.1/components/prism-python.min.js"></script>
 <script src="//unpkg.com/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-<!-- PDFObject.js is a required dependency of this plugin -->
+<!-- PDF -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script>
-<!-- This is the source code of the pdf embed plugin -->
 <script src="path-to-file/docsify-pdf-embed.js"></script>
-<!-- or use this if you are not hosting the file yourself -->
 <script src="//unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
+<!-- PDF -->
 </body>
 </html>

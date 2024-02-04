@@ -1,3 +1,3 @@
 ```pdf
-	简历.pdf
+	/contents/简历/简历.pdf
 ```
