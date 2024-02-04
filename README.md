@@ -1,0 +1,3 @@
+```shell
+docsify serve docs
+```
