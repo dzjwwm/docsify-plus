@@ -1,1 +1,1 @@
-# 插件地址(https://docsify.js.org/#/awesome?id=plugins)
+# 官网(https://docsify.js.org/#/quickstart)

@@ -12,7 +12,7 @@
     <!-- 默认主题 -->
     <link rel="stylesheet" href="//fastly.jsdelivr.net/npm/docsify/lib/themes/vue.css">
     <!--xmind-->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/AntHubTC/docsify-xmind@1.0/example/dist/index.min.css" />
+    <link rel="stylesheet" href="plugins/xmind/index.min.css" />
     <!-- <link rel="stylesheet" href="//fastly.jsdelivr.net/npm/docsify/lib/themes/vue.css" /> -->
     <!-- <link rel="stylesheet" href="//fastly.jsdelivr.net/npm/docsify/lib/themes/buble.css" /> -->
     <!-- <link rel="stylesheet" href="//fastly.jsdelivr.net/npm/docsify/lib/themes/dark.css" /> -->
@@ -62,18 +62,18 @@
             hideOtherSidebarContent: false,
             namespace: 'Docsify-Guide',
         },
-
-        formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}',
-        formatUpdated: function (time) {
-            return time;
-        },
         // 目标是在 markdown 中打开外部链接。默认'_blank'（新窗口/标签）
         externalLinkTarget: '_blank', // default: '_blank' '_self'
+        // 进度条
         progress: {
             position: "top",
             color: "var(--theme-color,#42b983)",
             height: "3px",
         },
+        // 执行脚本
+        executeScript: true,
+
+
     }
 </script>
 <!-- docsify的js依赖 -->
@@ -104,6 +104,9 @@
 <!-- 进度条 -->
 <script src="https://cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script>
 <!--xmind-->
-<script src="//cdn.jsdelivr.net/gh/AntHubTC/docsify-xmind@1.0/example/dist/index.min.js"></script>
+<script src="plugins/xmind/index.min.js"></script>
+<!--自定义插件-->
+<script src="plugins/docsify-plugin.js"></script>
+
 </body>
 </html>
