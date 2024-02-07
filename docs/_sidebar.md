@@ -29,6 +29,9 @@
         - [📃 11.多线程](contents/java/进阶/day11-多线程/day12-多线程.md)
         - [📃 12.网络编程](contents/java/进阶/day12-网络编程/day13-网络编程.md)
         - [📃 13.单元测试、反射、注解、动态代理](contents/java/进阶/day13-单元测试、反射、注解、动态代理/day14-单元测试、反射、注解、动态代理.md)
+    - [📁 脚本](contents/java/脚本/README.md)
+        - [1.生成xmind](contents/java/脚本/xmind/xmind.md)
+
 - [📁 MySql](contents/mysql/README.md)
     - [📃 基础版](contents/mysql/基础/README.md)
     - [📃 进阶版](contents/mysql/进阶/README.md)
