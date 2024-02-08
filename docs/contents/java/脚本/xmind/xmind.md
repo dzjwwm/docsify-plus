@@ -2,7 +2,6 @@
 ## 1.1 下载
 <a href="/files/xmindjbehaveplugin-0.8.jar" download>下载 xmindjbehaveplugin-0.8.jar</a>
 
-
 ## 1.2 maven安装命令
 > 前提：maven环境已经安装，将下载的xmindjbehaveplugin-0.8.jar放在项目根目录
 ```shell
