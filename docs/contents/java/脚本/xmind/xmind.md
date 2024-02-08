@@ -8,7 +8,7 @@
 mvn install:install-file -Dfile=xmindjbehaveplugin-0.8.jar -DgroupId=com.github.eljah -DartifactId=xmindjbehaveplugin -Dversion=0.8 -Dpackaging=jar
 ```
 > [!warning]
-> -Dfile=xmindjbehaveplugin-0.8.jar 需要替换成自己的路径
+> -Dfile=xmindjbehaveplugin-0.8.jar：需要替换成自己的路径
 
 ![目录结构](assets/1.png)
 
