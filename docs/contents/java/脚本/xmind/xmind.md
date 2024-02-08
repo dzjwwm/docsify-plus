@@ -10,7 +10,7 @@ mvn install:install-file -Dfile=xmindjbehaveplugin-0.8.jar -DgroupId=com.github.
 > [!warning]
 > -Dfile=xmindjbehaveplugin-0.8.jar 需要替换成自己的路径
 
-![目录结构](assets/Snipaste_2024-02-07_18-23-11.png)
+![目录结构](assets/1.png)
 
 ## 1.3 添加pom.xml
 
