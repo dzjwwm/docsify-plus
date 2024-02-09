@@ -33,7 +33,8 @@
         - [1.生成xmind](contents/java/脚本/xmind/xmind.md)
 
 - [📁 MySql](contents/mysql/README.md)
-    - [📃 基础版](contents/mysql/基础/README.md)
-    - [📃 进阶版](contents/mysql/进阶/README.md)
-    - [📃 运维版](contents/mysql/运维/README.md)
-    - [📃 存储过程](contents/mysql/存储过程/README.md)
+    - [📁 基础版](contents/mysql/基础/README.md)
+        - [📃 1、SQL语句分类和数据类型](contents/mysql/基础/1、SQL语句分类和数据类型.md)
+    - [📁 进阶版](contents/mysql/进阶/README.md)
+    - [📁 运维版](contents/mysql/运维/README.md)
+    - [📁 存储过程](contents/mysql/存储过程/README.md)
