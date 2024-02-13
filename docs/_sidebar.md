@@ -2,7 +2,7 @@
 
 - [📃 简介](README.md)
 
-[//]: # (- [个人简历]&#40;contents/简历/README.md&#41;)
+- [📃 个人简历](contents/简历/README.md)
 
 - [📁 JAVA](contents/java/README.md)
     - [📁 基础版](contents/java/基础/README.md)
