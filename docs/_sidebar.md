@@ -44,3 +44,6 @@
     - [📁 进阶版](contents/mysql/进阶/README.md)
     - [📁 运维版](contents/mysql/运维/README.md)
     - [📁 存储过程](contents/mysql/存储过程/README.md)
+- [📁 副业](contents/副业/README.md)
+  - [📁 自媒体](contents/副业/自媒体/README.md)
+    - [📃 1.影视解说](contents/副业/自媒体/1.影视解说/1.影视解说.md)
