@@ -172,10 +172,12 @@ public class Make {
 ## 1.6 调用（App.java）
 ```java
 package org.generate.xmind;
+
 import com.alibaba.fastjson.JSON;
 import org.xmind.core.*;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONArray;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
@@ -190,8 +192,6 @@ public class App {
 
     static {
         make = new Make();
-        make.setFileName("file.xmind");
-        make.setRootTopicTitle("测试主题");
     }
 
     /**
@@ -219,37 +219,43 @@ public class App {
 
     /**
      * 递归生成case
-     * @param data json数据
+     *
+     * @param data        json数据
      * @param parentTopic 主题对象
+     * @param name 需要替换的名称
      */
-    public static void loopJson(JSONObject data, ITopic parentTopic) {
+    public static void loopJson(JSONObject data, ITopic parentTopic, String name) {
         for (String key : data.keySet()) {
             if (data.get(key) instanceof JSONObject) {
                 JSONObject value = (JSONObject) data.get(key);
-                ITopic topic = make.addTopic(parentTopic, key);
-                loopJson(value, topic);
+                ITopic topic = make.addTopic(parentTopic, key.replace("${name}", name));
+                loopJson(value, topic, name);
             } else if (data.get(key) instanceof JSONArray) {
-                ITopic lastTopic = make.addTopic(parentTopic, key);
+                ITopic lastTopic = make.addTopic(parentTopic, key.replace("${name}", name));
                 JSONArray jsonArray = (JSONArray) data.get(key);
                 for (Object caseData : jsonArray) {
                     JSONObject jsonCase = (JSONObject) caseData;
-                    System.out.println(jsonCase);
-                    ITopic topic =  make.addTopic(lastTopic, JSON.toJSONString(jsonCase.get("title")));
+                    ITopic topic = make.addTopic(lastTopic, JSON.toJSONString(jsonCase.get("title")).replace("${name}", name));
                     make.addPriority(topic, Integer.parseInt(JSON.toJSONString(jsonCase.get("priority"))));
-                    make.addNote(topic, (String) jsonCase.get("note"));
+                    String note = (String) jsonCase.get("note");
+                    note = note.replace("${name}", name);
+                    make.addNote(topic, note);
                 }
             }
         }
     }
 
     public static void main(String[] args) throws Exception {
-        String[] paths = {"data/测试.json"};
+        String[] paths = {"data/结账方式-团购类.json"};
+        make.setFileName("测试.xmind");
+        make.setRootTopicTitle("测试");
         for (String path : paths) {
             JSONObject data = getJSon(path);
-            loopJson(data, make.getRootTopic());
+            loopJson(data, make.getRootTopic(), "测试");
         }
         make.saveFile();
 
     }
 }
+
 ```
