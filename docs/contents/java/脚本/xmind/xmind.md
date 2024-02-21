@@ -180,6 +180,9 @@ import com.alibaba.fastjson.JSONArray;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -212,9 +215,20 @@ public class App {
         while ((line = reader.readLine()) != null) {
             content.append(line);
         }
-        JSONObject jsonObject = JSONObject.parseObject(content.toString());
-        System.out.println(jsonObject.toString());
-        return jsonObject;
+        return JSONObject.parseObject(content.toString());
+    }
+
+    /**
+     * 替换字符串
+     * @param data 字符串
+     * @param nameList 需要替换的规则
+     * @return 替换后的数据
+     */
+    public static String parameterCase(String data, JSONObject nameList) {
+        for (String keyName : nameList.keySet()) {
+            data = data.replace(keyName, nameList.getString(keyName));
+        }
+        return data;
     }
 
     /**
@@ -222,36 +236,45 @@ public class App {
      *
      * @param data        json数据
      * @param parentTopic 主题对象
-     * @param name 需要替换的名称
+     * @param nameList    需要替换的名称，
      */
-    public static void loopJson(JSONObject data, ITopic parentTopic, String name) {
+    public static void loopJson(JSONObject data, ITopic parentTopic, JSONObject nameList) {
+        // 循环获取json的key
         for (String key : data.keySet()) {
             if (data.get(key) instanceof JSONObject) {
+                // 判断key对应value是否为json对象，设置主题，并继续调用loopJson处理
                 JSONObject value = (JSONObject) data.get(key);
-                ITopic topic = make.addTopic(parentTopic, key.replace("${name}", name));
-                loopJson(value, topic, name);
+
+                ITopic topic = make.addTopic(parentTopic, parameterCase(key, nameList));
+                loopJson(value, topic, nameList);
             } else if (data.get(key) instanceof JSONArray) {
-                ITopic lastTopic = make.addTopic(parentTopic, key.replace("${name}", name));
+                // 判断key对应value是否为数组，设置主题
+                ITopic lastTopic = make.addTopic(parentTopic, parameterCase(key, nameList));
                 JSONArray jsonArray = (JSONArray) data.get(key);
                 for (Object caseData : jsonArray) {
+                    // 循环数组里的用例
                     JSONObject jsonCase = (JSONObject) caseData;
-                    ITopic topic = make.addTopic(lastTopic, JSON.toJSONString(jsonCase.get("title")).replace("${name}", name));
+                    ITopic topic = make.addTopic(lastTopic, parameterCase(JSON.toJSONString(jsonCase.get("title")), nameList));
                     make.addPriority(topic, Integer.parseInt(JSON.toJSONString(jsonCase.get("priority"))));
                     String note = (String) jsonCase.get("note");
-                    note = note.replace("${name}", name);
-                    make.addNote(topic, note);
+                    make.addNote(topic, parameterCase(note, nameList));
                 }
             }
         }
     }
 
     public static void main(String[] args) throws Exception {
-        String[] paths = {"data/结账方式-团购类.json"};
-        make.setFileName("测试.xmind");
-        make.setRootTopicTitle("测试");
+        String[] paths = {"data/测试.json"};
+        String fileName = "测试";
+        // 设置文件名
+        make.setFileName(fileName + ".xmind");
+        make.setRootTopicTitle(fileName);
+        // 声明需要替换的参数
+        JSONObject nameList = new JSONObject();
+        nameList.put("${name}", "测试");
         for (String path : paths) {
             JSONObject data = getJSon(path);
-            loopJson(data, make.getRootTopic(), "测试");
+            loopJson(data, make.getRootTopic(), nameList);
         }
         make.saveFile();
 
