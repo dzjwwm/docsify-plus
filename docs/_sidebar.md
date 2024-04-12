@@ -2,8 +2,6 @@
 
 - [📃 简介](README.md)
 
-- [📃 个人简历](contents/简历/README.md)
-
 - [📁 JAVA](contents/java/README.md)
     - [📁 基础版](contents/java/基础/README.md)
         - [📃 1.Java入门](contents/java/基础/day01-Java入门/day01-Java入门.md)
@@ -48,7 +46,3 @@
     - [📁 三方库](contents/python/三方库/README.md)
         - [📁 moviepy](contents/python/三方库/moviepy-剪辑视频/README.md)
             - [📃 1.moviepy安装](contents/python/三方库/moviepy-剪辑视频/1、安装/1、安装.md)
-- [📁 副业](contents/副业/README.md)
-    - [📁 自媒体](contents/副业/自媒体/README.md)
-        - [📃 1.影视解说](contents/副业/自媒体/1.影视解说/影视解说.md)
-        - [📃 2.音频工具](contents/副业/自媒体/2.音频工具/音频工具.md)
