@@ -88,7 +88,13 @@
                 attention: {
                     label: "禁止"
                 }
-            }
+            },
+            // 更新时间
+            timeUpdater: {
+                text: ">最后更新时间: {docsify-updated}",
+                formatUpdated: "{YYYY}/{MM}/{DD}",
+                whereToPlace: "top",  // "top" or "bottom", default to "bottom"
+            },
         }
     </script>
     <!-- docsify的js依赖 -->
@@ -124,13 +130,15 @@
     <script src="plugins/xmind/index.min.js"></script>
     <!--提示-->
     <script src="static/js/docsify-plugin-flexible-alerts.min.js"></script>
+    <!-- 更新时间 -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.js"></script>
     <!-- 在 index.html 中添加 html2pdf.js -->
     <script src="static/js/html2pdf.bundle.min.js"></script>
     <!--docsify-plugin生命周期插件-->
     <script src="plugins/docsify-plugin.js"></script>
     <!-- 自定义工具 -->
     <script src="static/js/utils.js"></script>
-    
+
 </body>
 <style>
     /* 导入下载pdf样式 */
