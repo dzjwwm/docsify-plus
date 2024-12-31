@@ -1,6 +1,6 @@
 <!-- _sidebar.md -->
 
-- [📃 简介](README.md)
+- [📃 项目大全](README.md)
 
 - [📁 JAVA](contents/java/README.md)
   - [📁 基础版](contents/java/基础/README.md)
