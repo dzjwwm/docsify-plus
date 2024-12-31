@@ -5,7 +5,6 @@
   * [Github地址](https://github.com/shiming-git)
   * [Gitee地址](https://gitee.com/librarycodes)
 
-
 * 友情链接
   * [Docsify](https://docsify.js.org/#/)
   * [博客园](https://www.cnblogs.com)
@@ -14,5 +13,3 @@
 * 语言
   * [中文](/)
   * [En](/zh-en/)
-
-	
