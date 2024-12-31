@@ -1,0 +1,62 @@
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    /* 设置固定宽度 */
+    height: 50px;
+    /* 设置固定高度 */
+    padding: 0;
+    /* 移除内边距 */
+    background-color: #42b983;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    /* 设置为50%使其成为圆形 */
+    cursor: pointer;
+    font-size: 24px;
+    /* 增大字体大小 */
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    display: flex;
+    /* 使用 flex 布局 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+#backToTop:hover {
+    background-color: #3aa876;
+    transform: translateY(-2px);
+}
+
+#backToTop:active {
+    transform: translateY(0);
+}
+
+#backToTop::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    /* 调整位置，使其不遮挡按钮 */
+    right: 50%;
+    transform: translateX(50%);
+    /* 居中提示文本 */
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+#backToTop:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
