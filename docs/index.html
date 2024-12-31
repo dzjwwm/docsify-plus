@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>道之极万物灭</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Description">
     <!-- 设置浏览器图标 -->
-    <link rel="icon" href="/img/八卦.png" type="image/x-icon"/>
-    <link rel="shortcut icon" href="/img/八卦.png" type="image/x-icon"/>
+    <link rel="icon" href="/img/八卦.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/img/八卦.png" type="image/x-icon" />
     <!-- 默认主题 -->
     <link rel="stylesheet" href="//fastly.jsdelivr.net/npm/docsify/lib/themes/vue.css">
     <!--xmind-->
@@ -18,116 +19,308 @@
     <!-- <link rel="stylesheet" href="//fastly.jsdelivr.net/npm/docsify/lib/themes/dark.css" /> -->
     <!-- <link rel="stylesheet" href="//fastly.jsdelivr.net/npm/docsify/lib/themes/pure.css" /> -->
 </head>
+
 <body>
-<div data-app id="main">loading</div>
-<script>
-    window.$docsify = {
-        el: '#main',
-        // 项目名称
-        name: '道之极万物灭',
-        // 项目图标
-        // logo: '/img/logo.png',
-        // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
-        // repo: 'https://gitee.com/librarycodes/docsify-plus',
-        // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
-        coverpage: true,
-        // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
-        loadSidebar: true,
-        // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
-        loadNavbar: false,
-        // 最大支持渲染的标题层级
-        maxLevel: 5,
-        // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
-        subMaxLevel: 4,
-        // 小屏设备下合并导航栏到侧边栏
-        mergeNavbar: true,
-        // 未找到页面 _404.md
-        notFoundPage: true,
-        // 搜索配置
-        search: {
-            // 过期时间，单位毫秒，默认一天
-            maxAge: 86400000,
-            // 注意：仅适用于 paths: 'auto' 模式
-            paths: "auto",
-            // 支持本地化
-            placeholder: {
-                '/': '搜索',
-                '/zh-en/': 'Type to search'
-            },
-            noData: {
-                '/': '找不到结果',
-                '/zh-en/': 'No Results'
-            },
-            depth: 4,
-            hideOtherSidebarContent: false,
-            namespace: 'Docsify-Guide',
-        },
-        // 目标是在 markdown 中打开外部链接。默认'_blank'（新窗口/标签）
-        externalLinkTarget: '_blank', // default: '_blank' '_self'
-        // 进度条
-        progress: {
-            position: "top",
-            color: "var(--theme-color,#42b983)",
-            height: "3px",
-        },
-        // 执行脚本
-        executeScript: true,
-        // 提示
-        'flexible-alerts': {
-            note: {
-                label: "笔记"
-            },
-            tip: {
-                label: "提示"
-            },
-            warning: {
-                label: "注意"
-            },
-            attention: {
-                label: "禁止"
-            }
+    <div data-app id="main">loading</div>
+    <script>
+        // 下载 PDF 的函数
+        function downloadPDF() {
+            // 等待 Docsify 渲染完成
+            setTimeout(() => {
+                const element = document.querySelector('#main');
+                const opt = {
+                    margin: 10,
+                    filename: 'docsify-notes.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+
+                html2pdf().set(opt).from(element).save();
+            }, 2000); // 等待 2 秒确保内容已加载
         }
-    }
-</script>
-<!-- docsify的js依赖 -->
-<script src="//fastly.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-<!-- emoji表情支持 -->
-<script src="//fastly.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
-<!-- 图片放大缩小支持 -->
-<script src="//fastly.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-<!-- 搜索功能支持 -->
-<script src="//fastly.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-<!--在所有的代码块上添加一个简单的Click to copy按钮来允许用户从你的文档中轻易地复制代码-->
-<script src="//fastly.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-<!-- 分页导航 -->
-<script src="//fastly.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-<!-- 外部脚本 如果页面上的脚本是外部脚本（通过src属性导入 js 文件） -->
-<script src="//fastly.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
-<!-- 插件列表 -->
-<script src="//fastly.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-<script src="//fastly.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
-<script src="//fastly.jsdelivr.net/npm/prismjs@1.24.1/components/prism-java.min.js"></script>
-<script src="//fastly.jsdelivr.net/npm/prismjs@1.24.1/components/prism-python.min.js"></script>
-<!--取消自动展开-->
-<script src="//unpkg.com/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-<!-- PDF -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script>
-<script src="path-to-file/docsify-pdf-embed.js"></script>
-<script src="//unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
-<!-- 进度条 -->
-<script src="https://cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script>
-<!--xmind-->
-<script src="plugins/xmind/index.min.js"></script>
-<!--提示-->
-<script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
-<!--语法高亮-->
-<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-shell.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
-<!--自定义插件-->
-<script src="plugins/docsify-plugin.js"></script>
+        window.$docsify = {
+            el: '#main',
+            // 项目名称
+            name: '道之极万物灭',
+            // 项目图标
+            // logo: '/img/logo.png',
+            // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
+            // repo: 'https://gitee.com/librarycodes/docsify-plus',
+            // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
+            coverpage: true,
+            // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
+            loadSidebar: true,
+            // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
+            loadNavbar: false,
+            // 最大支持渲染的标题层级
+            maxLevel: 5,
+            // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
+            subMaxLevel: 4,
+            // 小屏设备下合并导航栏到侧边栏
+            mergeNavbar: true,
+            // 未找到页面 _404.md
+            notFoundPage: true,
+            // 搜索配置
+            search: {
+                // 过期时间，单位毫秒，默认一天
+                maxAge: 86400000,
+                // 注意：仅适用于 paths: 'auto' 模式
+                paths: "auto",
+                // 支持本地化
+                placeholder: {
+                    '/': '搜索',
+                    '/zh-en/': 'Type to search'
+                },
+                noData: {
+                    '/': '找不到结果',
+                    '/zh-en/': 'No Results'
+                },
+                depth: 4,
+                hideOtherSidebarContent: false,
+                namespace: 'Docsify-Guide',
+            },
+            // 目标是在 markdown 中打开外部链接。默认'_blank'（新窗口/标签）
+            externalLinkTarget: '_blank', // default: '_blank' '_self'
+            // 进度条
+            progress: {
+                position: "top",
+                color: "var(--theme-color,#42b983)",
+                height: "3px",
+            },
+            // 执行脚本
+            executeScript: true,
+            // 提示
+            'flexible-alerts': {
+                note: {
+                    label: "笔记"
+                },
+                tip: {
+                    label: "提示"
+                },
+                warning: {
+                    label: "注意"
+                },
+                attention: {
+                    label: "禁止"
+                }
+            },
+            plugins: [
+                function (hook, vm) {
+                    hook.init(function () {
+                        // 初始化完成后调用，只调用一次，没有参数。
+                    });
+                    hook.beforeEach(function (html) {
+                        // 每次开始解析 Markdown 内容时调用
+
+                        // 编辑功能
+                        var url =
+                            'https://gitee.com/tl31707/docsify-plus/tree/master/docs/' +
+                            vm.route.file;
+                        var editHtml = '[📝 编辑内容](' + url + ')\n';
+
+                        return (
+                            editHtml +
+                            html +
+                            '\n----\n' +
+                            'Last modified {docsify-updated} ' +
+                            editHtml
+                        );
+                    });
+                    hook.afterEach(function (html, next) {
+                        // 添加下载按钮
+                        html += '<button id="downloadPDF" data-tooltip="请先回到笔记开始处再下载，否则下载的文件显示不全">📥 下载 PDF</button>';
+                        // 添加回到顶部
+                        html += '<button id="backToTop" data-tooltip="回到顶部">🚀</button>';
+                        next(html);
+                    });
+
+                    hook.doneEach(function () {
+                        // 为下载按钮添加事件监听
+                        const downloadButton = document.getElementById('downloadPDF');
+                        if (downloadButton) {
+                            downloadButton.addEventListener('click', downloadPDF);
+                        }
+                        // 为回到顶部按钮添加事件监听
+                        const backToTopButton = document.getElementById('backToTop');
+                        if (backToTopButton) {
+                            backToTopButton.addEventListener('click', function () {
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            });
+                        }
+                    });
+
+                    hook.mounted(function () {
+                        // 初始化并第一次加载完成数据后调用，只触发一次，没有参数。
+                    });
+
+                    hook.ready(function () {
+                        // 初始化并第一次加载完成数据后调用，没有参数。
+                    });
+                }
+            ]
+        }
+    </script>
+    <!-- docsify的js依赖 -->
+    <script src="//fastly.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <!-- emoji表情支持 -->
+    <script src="//fastly.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+    <!-- 图片放大缩小支持 -->
+    <script src="//fastly.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <!-- 搜索功能支持 -->
+    <script src="//fastly.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!--在所有的代码块上添加一个简单的Click to copy按钮来允许用户从你的文档中轻易地复制代码-->
+    <script src="//fastly.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+    <!-- 分页导航 -->
+    <script src="//fastly.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <!-- 外部脚本 如果页面上的脚本是外部脚本（通过src属性导入 js 文件） -->
+    <script src="//fastly.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+    <!-- 插件列表 -->
+    <script src="//fastly.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="//fastly.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
+    <script src="//fastly.jsdelivr.net/npm/prismjs@1.24.1/components/prism-java.min.js"></script>
+    <script src="//fastly.jsdelivr.net/npm/prismjs@1.24.1/components/prism-python.min.js"></script>
+    <!--取消自动展开-->
+    <script src="//unpkg.com/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+    <!-- PDF -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script>
+    <script src="path-to-file/docsify-pdf-embed.js"></script>
+    <script src="//unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
+    <!-- 进度条 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script>
+    <!--xmind-->
+    <script src="plugins/xmind/index.min.js"></script>
+    <!--提示-->
+    <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+    <!--语法高亮-->
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-shell.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+    <!-- 在 index.html 中添加 html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!--自定义插件-->
+    <script src="plugins/docsify-plugin.js"></script>
 </body>
+<style>
+    /* 下载pdf样式---开始  */
+    #downloadPDF {
+        position: fixed;
+        top: 30px;
+        right: 20px;
+        padding: 10px 15px;
+        background-color: #42b983;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.3s, transform 0.1s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+    }
+
+    #downloadPDF:hover {
+        background-color: #3aa876;
+        transform: translateY(-2px);
+    }
+
+    #downloadPDF:active {
+        transform: translateY(0);
+    }
+
+    /* 新增：自定义 tooltip 样式 */
+    #downloadPDF::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        background-color: #333;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 3px;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    #downloadPDF:hover::after {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* 下载pdf样式---结束  */
+    /* 回到顶部样式---开始  */
+    #backToTop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        /* 设置固定宽度 */
+        height: 50px;
+        /* 设置固定高度 */
+        padding: 0;
+        /* 移除内边距 */
+        background-color: #42b983;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        /* 设置为50%使其成为圆形 */
+        cursor: pointer;
+        font-size: 24px;
+        /* 增大字体大小 */
+        font-weight: bold;
+        transition: background-color 0.3s, transform 0.1s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+        display: flex;
+        /* 使用 flex 布局 */
+        justify-content: center;
+        /* 水平居中 */
+        align-items: center;
+        /* 垂直居中 */
+    }
+
+    #backToTop:hover {
+        background-color: #3aa876;
+        transform: translateY(-2px);
+    }
+
+    #backToTop:active {
+        transform: translateY(0);
+    }
+
+    #backToTop::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 120%;
+        /* 调整位置，使其不遮挡按钮 */
+        right: 50%;
+        transform: translateX(50%);
+        /* 居中提示文本 */
+        background-color: #333;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 3px;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    #backToTop:hover::after {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* 回到顶部样式---结束  */
+</style>
+
+
 </html>
