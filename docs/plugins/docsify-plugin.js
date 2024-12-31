@@ -17,7 +17,6 @@
                 editHtml +
                 html +
                 '\n----\n' +
-                'Last modified {docsify-updated} ' +
                 editHtml
             );
         });
