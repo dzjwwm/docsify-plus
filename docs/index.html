@@ -18,6 +18,8 @@
     <!-- <link rel="stylesheet" href="//fastly.jsdelivr.net/npm/docsify/lib/themes/pure.css" /> -->
     <!--xmind-->
     <link rel="stylesheet" href="plugins/xmind/index.min.css" />
+    <!-- 链接预览 -->
+    <link rel="stylesheet" href="static/css/linkpreview.css" />
 </head>
 
 <body>
@@ -101,7 +103,7 @@
                 position: 'top',
                 margin: '10px',
                 float: 'right',
-                fontsize: '0.9em',
+                fontsize: '1.0em',
                 color: 'rgb(90,90,90)',
                 language: 'chinese',
                 localization: {
@@ -109,7 +111,11 @@
                     minute: ""
                 },
                 isExpected: true
-            }
+            },
+            // 链接预览
+            linkpreview: {
+                key: "823e4c69530634afab3bce669312e1e4",
+            },
         }
     </script>
     <!-- docsify的js依赖 -->
@@ -151,6 +157,8 @@
     <script src="static/js/countable.js"></script>
     <!-- 终端插件 -->
     <script src="static/js/docsify-terminal-block.js"></script>
+    <!-- 链接预览 -->
+    <script src="static/js/linkpreview.js"></script>
     <!-- 在 index.html 中添加 html2pdf.js -->
     <script src="static/js/html2pdf.bundle.min.js"></script>
     <!--docsify-plugin生命周期插件-->
