@@ -12,12 +12,12 @@
     <link rel="shortcut icon" href="static/img/八卦.png" type="image/x-icon" />
     <!-- 默认主题 -->
     <link rel="stylesheet" href="static/css/themes.css">
-    <!--xmind-->
-    <link rel="stylesheet" href="plugins/xmind/index.min.css" />
     <!-- <link rel="stylesheet" href="//fastly.jsdelivr.net/npm/docsify/lib/themes/vue.css" /> -->
     <!-- <link rel="stylesheet" href="//fastly.jsdelivr.net/npm/docsify/lib/themes/buble.css" /> -->
     <!-- <link rel="stylesheet" href="//fastly.jsdelivr.net/npm/docsify/lib/themes/dark.css" /> -->
     <!-- <link rel="stylesheet" href="//fastly.jsdelivr.net/npm/docsify/lib/themes/pure.css" /> -->
+    <!--xmind-->
+    <link rel="stylesheet" href="plugins/xmind/index.min.css" />
 </head>
 
 <body>
@@ -25,8 +25,8 @@
     <script>
         window.$docsify = {
             el: '#main',
-            // 项目名称
-            name: '道之极万物灭',
+            // name: '道之极万物灭',
+            name: '<div style="display: flex;justify-content: center;align-items: center;"><img src="static/img/logo.png"><div style="margin-left: 5px;">道之极万物灭</div></div>',
             // 项目图标
             // logo: 'static/img/logo.png',
             // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
@@ -95,6 +95,21 @@
                 formatUpdated: "{YYYY}/{MM}/{DD}",
                 whereToPlace: "top",  // "top" or "bottom", default to "bottom"
             },
+            // 字数
+            count: {
+                countable: true,
+                position: 'top',
+                margin: '10px',
+                float: 'right',
+                fontsize: '0.9em',
+                color: 'rgb(90,90,90)',
+                language: 'chinese',
+                localization: {
+                    words: "",
+                    minute: ""
+                },
+                isExpected: true
+            }
         }
     </script>
     <!-- docsify的js依赖 -->
@@ -131,7 +146,11 @@
     <!--提示-->
     <script src="static/js/docsify-plugin-flexible-alerts.min.js"></script>
     <!-- 更新时间 -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.js"></script>
+    <script src="static/js/time-updater.js"></script>
+    <!-- 统计字数和阅读时间 -->
+    <script src="static/js/countable.js"></script>
+    <!-- 终端插件 -->
+    <script src="static/js/docsify-terminal-block.js"></script>
     <!-- 在 index.html 中添加 html2pdf.js -->
     <script src="static/js/html2pdf.bundle.min.js"></script>
     <!--docsify-plugin生命周期插件-->
