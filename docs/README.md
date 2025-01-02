@@ -30,5 +30,9 @@
 
 <https://sqlmother.yupi.icu/#/learn>
 
+<div class="link-name">Flet</div>
+
+<https://flet.qiannianlu.com/docs/>
+
 <!-- 需要内镶一个外部页面 -->
 <!-- <iframe src="https://www.baidu.com/" width="100%" height="1000px"></iframe> -->
