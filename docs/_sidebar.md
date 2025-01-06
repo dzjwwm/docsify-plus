@@ -66,3 +66,6 @@
   - [📃 3.交互式脚本](contents/shell/3.交互式脚本.md)
 - [📁 Git](contents/git/README.md)
 - [📁 前端](contents/前端/README.md)
+- [📁 termux](contents/termux/README.md)
+  - [📃 1.安装包](contents/termux/1.安装包.md)
+  - [📃 2.常用命令](contents/termux/2.常用命令.md)
