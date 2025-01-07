@@ -23,79 +23,80 @@ function downloadPDF() {
     }
 }
 // 获取路由
-function getRouterSync() {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', '../_sidebar.md', false); // 使用同步请求
-    xhr.send(null);
+function getRouter() {
+    // 获取class="sidebar-nav"元素
+    const sidebarNav = document.querySelector('.sidebar-nav');
+    // 获取class="sidebar-nav"元素下所有的a标签href，中文需要转码   
+    const urls = Array.from(sidebarNav.querySelectorAll('a')).map(a => decodeURIComponent(a.href));
+    // 获取class="sidebar-nav"元素下所有的a标签title
+    const titles = Array.from(sidebarNav.querySelectorAll('a')).map(a => a.title);
+    // 循环urls和titles，，并且将url最后文件名替换成title
+    const result = {};
+    const routers = [];
+    urls.forEach((url, index) => {
+        // 去除url的域名只获取路径
+        const path = url.replace(window.location.origin, '').slice(3)+'.md';
+        // - [📁 JAVA](contents/java/README.md)
+        const newUrl = `- [${titles[index]}](${path})`;
+        routers.push(newUrl);
+    })
 
-    if (xhr.status === 200) {
-        const content = xhr.responseText;
-        const lines = content.split('\n');
-        const result = {};
+    const parseLines = (routers, parent) => {
+        let currentParent = parent;
+        let currentParentSplit = ""
+        routers.slice(1).forEach(line => {
+            const match = line.match(/- \[📃 (.+?)\]\((.+?)\)/);
+            const folderMatch = line.match(/- \[📁 (.+?)\]\((.+?)\)/);
+            if (match) {
+                const [_, name, url] = match;
+                // console.log("获取到文件：", url);
+                // 判断当前 currentParent 实在url中,如果在就向对应的数组中添加
+                if (url.includes(currentParentSplit)) {
+                    result[currentParent].push({
+                        name,
+                        url,
+                    });
+                }
+            }
+            if (folderMatch) {
+                const [_, name, url] = folderMatch;
+                // console.log("获取到文件夹：", url);
+                // 分割contents/java/README.md路径的README.md，获取contents/java/
+                currentParentSplit = url.split('/').slice(0, -1).join('/');
+                currentParent = url
+                result[currentParent] = [];
+            }
+        });
+        // 将result中的key转换为数组
+        const keys = Object.keys(result);
+        // 去除后缀 /README.md
+        const removeSuffix = (path) => path.replace(/\/README\.md$/, '');
 
-        const parseLines = (lines, parent) => {
-            let currentParent = parent;
-            let currentParentSplit = ""
-            // 忽略前两行
-            lines.slice(3).forEach(line => {
-                const match = line.match(/- \[📃 (.+?)\]\((.+?)\)/);
-                const folderMatch = line.match(/- \[📁 (.+?)\]\((.+?)\)/);
-                if (match) {
-                    const [_, name, url] = match;
-                    // console.log("获取到文件：", url);
-                    // 判断当前 currentParent 实在url中,如果在就向对应的数组中添加
-                    if (url.includes(currentParentSplit)) {
-                        result[currentParent].push({
-                            name,
-                            url,
-                        });
-                    }
+        // 构建目录结构
+        const buildDirectoryStructure = (filePaths) => {
+            const directoryStructure = {};
+
+            filePaths.forEach((path) => {
+                const directory = removeSuffix(path);
+                const parts = directory.split('/');
+                const parent = parts.slice(0, -1).join('/') + '/README.md';
+                if (!directoryStructure[parent]) {
+                    directoryStructure[parent] = [];
                 }
-                if (folderMatch) {
-                    const [_, name, url] = folderMatch;
-                    // console.log("获取到文件夹：", url);
-                    // 分割contents/java/README.md路径的README.md，获取contents/java/
-                    currentParentSplit = url.split('/').slice(0, -1).join('/');
-                    currentParent = url
-                    result[currentParent] = [];
-                }
+
+                directoryStructure[parent].push({ name: parts[parts.length - 1], url: path });
             });
-            // 将result中的key转换为数组
-            const keys = Object.keys(result);
-            // 去除后缀 /README.md
-            const removeSuffix = (path) => path.replace(/\/README\.md$/, '');
 
-            // 构建目录结构
-            const buildDirectoryStructure = (filePaths) => {
-                const directoryStructure = {};
-
-                filePaths.forEach((path) => {
-                    const directory = removeSuffix(path);
-                    const parts = directory.split('/');
-                    const parent = parts.slice(0, -1).join('/') + '/README.md';
-                    if (!directoryStructure[parent]) {
-                        directoryStructure[parent] = [];
-                    }
-
-                    directoryStructure[parent].push({ name: parts[parts.length - 1], url: path });
-                });
-
-                return directoryStructure;
-            };
-            const directoryStructure = buildDirectoryStructure(keys);
-            // 移除contents/README.md key
-            delete directoryStructure['contents/README.md'];
-            // 构建目录结构,循环处理directoryStructure，将directoryStructure的key对应的value赋值给result的key对应的value
-            Object.keys(directoryStructure).forEach(key => {
-                result[key] = directoryStructure[key];
-            })
+            return directoryStructure;
         };
-        parseLines(lines, result);
-        // 将result存入本地内存，key为router
-        localStorage.setItem('router', JSON.stringify(result));
-        return result;
-    } else {
-        throw new Error(`Failed to fetch file: ${xhr.status}`);
-    }
+        const directoryStructure = buildDirectoryStructure(keys);
+        // 移除contents/README.md key
+        delete directoryStructure['contents/README.md'];
+        // 构建目录结构,循环处理directoryStructure，将directoryStructure的key对应的value赋值给result的key对应的value
+        Object.keys(directoryStructure).forEach(key => {
+            result[key] = directoryStructure[key];
+        })
+    };
+    parseLines(routers, result);
+    return result;
 }
-getRouterSync()

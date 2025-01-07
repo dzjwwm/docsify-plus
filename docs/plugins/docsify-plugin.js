@@ -1,4 +1,5 @@
-(function () {
+
+function docsifyPlugin() {
     var myPlugin = function (hook, vm) {
         // 当docsify脚本初始化时调用一次
         hook.init(function () {
@@ -15,6 +16,7 @@
             // ------------------------------目录功能------------------------------
             // 添加路由，读取内存中的本地内存，key为router，并且转为对象
             var router = JSON.parse(localStorage.getItem('router') || '{}');
+            console.log("router2:",router);
             // vm.route.file 中文乱码，需要转码
             var file = decodeURIComponent(vm.route.file);
             // 从router中获取当前笔记的子路径
@@ -27,6 +29,7 @@
                     mdText += '[' + item.name + '](/' + item.url + ')\n\n';
                 })
             }
+
 
             return (
                 mdText +
@@ -63,9 +66,13 @@
         });
         // 在渲染初始页面之后调用一次
         hook.ready(function () {
+            const router = getRouter();
+            // 将router存入本地内存，key为router
+            console.log("router4:",localStorage.getItem('router'));
         });
     };
     // 将插件添加到docsify的插件数组
     $docsify = $docsify || {};
     $docsify.plugins = [].concat(myPlugin, $docsify.plugins || []);
-})();
+}
+docsifyPlugin()
