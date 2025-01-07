@@ -25,7 +25,7 @@ function downloadPDF() {
 // 获取路由
 function getRouterSync() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', '../../_sidebar.md', false); // 使用同步请求
+    xhr.open('GET', '../_sidebar.md', false); // 使用同步请求
     xhr.send(null);
 
     if (xhr.status === 200) {
@@ -73,9 +73,6 @@ function getRouterSync() {
                     const directory = removeSuffix(path);
                     const parts = directory.split('/');
                     const parent = parts.slice(0, -1).join('/') + '/README.md';
-                    console.log("directory：", directory);
-                    console.log("parts："  , parts)
-                    console.log("parent："  , parent)
                     if (!directoryStructure[parent]) {
                         directoryStructure[parent] = [];
                     }

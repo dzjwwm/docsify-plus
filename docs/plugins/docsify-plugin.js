@@ -19,13 +19,14 @@
             var file = decodeURIComponent(vm.route.file);
             // 从router中获取当前笔记的子路径
             var subPath = router[file] || '';
-            console.log(subPath);
             // 再mdText后面加两个空格
             mdText += '\n\n';
-            // forEach遍历数组subPath，将每个子路径添加到mdText中，如：[name](/url)
-            subPath.forEach(function (item) {
-                mdText += '[' + item.name + '](/' + item.url + ')\n\n';
-            })
+            // 判断subPath是否为数组 forEach遍历数组，将每个子路径添加到mdText中，如：[name](/url)
+            if (Array.isArray(subPath)) {
+                subPath.forEach(function (item) {
+                    mdText += '[' + item.name + '](/' + item.url + ')\n\n';
+                })
+            }
 
             return (
                 mdText +
