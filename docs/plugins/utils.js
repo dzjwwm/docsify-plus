@@ -73,9 +73,6 @@ function getRouterSync() {
                     const directory = removeSuffix(path);
                     const parts = directory.split('/');
                     const parent = parts.slice(0, -1).join('/') + '/README.md';
-                    console.log("directory：", directory);
-                    console.log("parts："  , parts)
-                    console.log("parent："  , parent)
                     if (!directoryStructure[parent]) {
                         directoryStructure[parent] = [];
                     }
