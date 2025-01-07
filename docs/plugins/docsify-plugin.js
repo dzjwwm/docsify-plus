@@ -30,7 +30,6 @@ function docsifyPlugin() {
                 })
             }
 
-
             return (
                 mdText +
                 '\n----\n' +
