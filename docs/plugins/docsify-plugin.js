@@ -6,16 +6,29 @@
         });
         // 在每次页面加载，新的markdown转换为HTML之前调用
         // 支持异步任务（详见beforeEach文档）
-        hook.beforeEach(function (html) {
-            // 编辑功能
+        hook.beforeEach(function (mdText) {
+            // ------------------------------编辑功能------------------------------
             var url =
                 'https://gitee.com/tl31707/docsify-plus/tree/master/docs/' +
                 vm.route.file;
             var editHtml = '[📝 编辑内容](' + url + ')\n';
+            // ------------------------------目录功能------------------------------
+            // 添加路由，读取内存中的本地内存，key为router，并且转为对象
+            var router = JSON.parse(localStorage.getItem('router') || '{}');
+            // vm.route.file 中文乱码，需要转码
+            var file = decodeURIComponent(vm.route.file);
+            // 从router中获取当前笔记的子路径
+            var subPath = router[file] || '';
+            console.log(subPath);
+            // 再mdText后面加两个空格
+            mdText += '\n\n';
+            // forEach遍历数组subPath，将每个子路径添加到mdText中，如：[name](/url)
+            subPath.forEach(function (item) {
+                mdText += '[' + item.name + '](/' + item.url + ')\n\n';
+            })
 
             return (
-                editHtml +
-                html +
+                mdText +
                 '\n----\n' +
                 editHtml
             );
@@ -30,7 +43,6 @@
                 // 添加回到顶部
                 html += '<button id="backToTop" data-tooltip="回到顶部">🚀</button>';
             }
-
             next(html);
         });
         // 在每次页面加载，新的HTML已经添加到DOM之后调用
