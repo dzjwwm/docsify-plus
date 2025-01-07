@@ -68,7 +68,7 @@ function docsifyPlugin() {
         hook.ready(function () {
             const router = getRouter();
             // 将router存入本地内存，key为router
-            localStorage.setItem('router', JSON.stringify(router,null,2));
+            localStorage.setItem('router', JSON.stringify(router));
         });
     };
     // 将插件添加到docsify的插件数组
