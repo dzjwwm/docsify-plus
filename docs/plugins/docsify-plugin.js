@@ -18,7 +18,7 @@ function docsifyPlugin() {
             var router = JSON.parse(localStorage.getItem('router') || '{}');
             console.log("router2:",router);
             // vm.route.file 中文乱码，需要转码
-            var file = decodeURIComponent(vm.route.file);
+            var file = "/"+decodeURIComponent(vm.route.file);
             // 从router中获取当前笔记的子路径
             var subPath = router[file] || '';
             // 再mdText后面加两个空格

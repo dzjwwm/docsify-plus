@@ -35,7 +35,7 @@ function getRouter() {
     const routers = [];
     urls.forEach((url, index) => {
         // 去除url的域名只获取路径
-        const path = url.replace(window.location.origin, '').slice(3)+'.md';
+        const path = url.split("#").slice(1)[0]+'.md';
         // - [📁 JAVA](contents/java/README.md)
         const newUrl = `- [${titles[index]}](${path})`;
         routers.push(newUrl);
