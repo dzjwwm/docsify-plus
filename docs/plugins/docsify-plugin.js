@@ -26,7 +26,7 @@ function docsifyPlugin() {
             // 判断subPath是否为数组 forEach遍历数组，将每个子路径添加到mdText中，如：[name](/url)
             if (Array.isArray(subPath)) {
                 subPath.forEach(function (item) {
-                    mdText += '[' + item.name + '](/' + item.url + ')\n\n';
+                    mdText += '[' + item.name + '](' + item.url + ')\n\n';
                 })
             }
 
