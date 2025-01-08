@@ -44,6 +44,7 @@
   - [📁 环境配置](contents/python/环境配置/README.md)
     - [📃 1.pip镜像源](contents/python/环境配置/1.pip镜像源.md)
     - [📃 2.virtualenvwrapper管理虚拟环境](contents/python/环境配置/2.virtualenvwrapper管理虚拟环境.md)
+    - [📃 3.conda管理环境](contents/python/环境配置/3.conda管理环境.md)
   - [📁 脚本合集](contents/python/脚本合集/README.md)
     - [📃 1.操作word](contents/python/脚本合集/1.操作word.md)
     - [📃 2.AES加密解密](contents/python/脚本合集/2.AES加密解密.md)

@@ -39,5 +39,9 @@
 <div class="link-name">DeepSeek+Cline零成本打造媲美Cursor/Windsurf的AI编辑器，图文+视频教程</div>
 
 <https://mp.weixin.qq.com/s/irtSQOWWh8mUCV7DL40QwA>
+
+<div class="link-name">DeepSeek</div>
+
+<https://www.deepseek.com/>
 <!-- 需要内镶一个外部页面 -->
 <!-- <iframe src="https://www.baidu.com/" width="100%" height="1000px"></iframe> -->
