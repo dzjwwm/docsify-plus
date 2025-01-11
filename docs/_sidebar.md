@@ -73,3 +73,6 @@
 - [📁 termux](contents/termux/README.md)
   - [📃 1.安装包](contents/termux/1.安装包.md)
   - [📃 2.常用命令](contents/termux/2.常用命令.md)
+- [📁 vscode](contents/vscode/README.md)
+  - [📃 1.基础配置](contents/vscode/1.基础配置.md)
+
