@@ -43,5 +43,9 @@
 <div class="link-name">DeepSeek</div>
 
 <https://www.deepseek.com/>
+
+<div class="link-name">NiceGUI</div>
+
+<https://nicegui.io/>
 <!-- 需要内镶一个外部页面 -->
 <!-- <iframe src="https://www.baidu.com/" width="100%" height="1000px"></iframe> -->
