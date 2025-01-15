@@ -47,5 +47,9 @@
 <div class="link-name">NiceGUI</div>
 
 <https://nicegui.io/>
+
+<div class="link-name">Python命令行执行：typer</div>
+
+<https://github.com/fastapi/typer>
 <!-- 需要内镶一个外部页面 -->
 <!-- <iframe src="https://www.baidu.com/" width="100%" height="1000px"></iframe> -->
