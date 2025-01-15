@@ -48,6 +48,10 @@
 
 <https://nicegui.io/>
 
+<div class="link-name">NiceGUI可用的icon</div>
+
+<https://quasar.dev/options/quasar-icon-sets>
+
 <div class="link-name">Python命令行执行：typer</div>
 
 <https://github.com/fastapi/typer>
