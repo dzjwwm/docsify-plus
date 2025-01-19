@@ -51,6 +51,9 @@
   - [📁 三方库](contents/python/三方库/README.md)
     - [📁 moviepy](contents/python/三方库/moviepy/README.md)
       - [📃 1.moviepy安装](contents/python/三方库/moviepy/1、安装.md)
+    - [📁 niceGUI](contents/python/三方库/niceGUI/README.md)
+      - [📃 1.官网地址](contents/python/三方库/niceGUI/1.官网地址.md)
+      - [📃 2.2.ui.table的用法.md](contents/python/三方库/niceGUI/2.ui.table的用法.md)
   - [📁 DNF脚本](contents/python/DNF脚本/README.md)
     - [📃 1.在一个大图片上找小图片](contents/python/DNF脚本/1.在一个大图片上找小图片.md)
     - [📃 2.操作ch9329键盘](contents/python/DNF脚本/2.操作ch9329键盘.md)
@@ -75,4 +78,3 @@
   - [📃 2.常用命令](contents/termux/2.常用命令.md)
 - [📁 vscode](contents/vscode/README.md)
   - [📃 1.基础配置](contents/vscode/1.基础配置.md)
-
