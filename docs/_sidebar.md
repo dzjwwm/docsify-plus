@@ -78,3 +78,6 @@
   - [📃 2.常用命令](contents/termux/2.常用命令.md)
 - [📁 vscode](contents/vscode/README.md)
   - [📃 1.基础配置](contents/vscode/1.基础配置.md)
+- [📁 APP](contents/APP/README.md)
+  - [📃 1.安装](contents/APP/1.安装.md)
+  - [📃 2.无线连接adb](contents/APP/2.无线连接adb.md)
