@@ -41,6 +41,8 @@
   - [📁 进阶版](contents/mysql/进阶版/README.md)
   - [📁 运维版](contents/mysql/运维/README.md)
   - [📁 存储过程](contents/mysql/存储过程/README.md)
+- [📁 MongoDB](contents/mongodb/README.md)
+  - [📃 1.快速入门](contents/mongodb/1.快速入门.md)
 - [📁 Python](contents/python/README.md)
   - [📁 环境配置](contents/python/环境配置/README.md)
     - [📃 1.pip 镜像源](contents/python/环境配置/1.pip镜像源.md)
