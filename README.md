@@ -17,3 +17,8 @@ docsify serve -p 10002 docs
 ```shell
 http://localhost:10002
 ```
+
+## 4、后台运行
+```shell
+nohup docsify serve -p 10002 docs &
+```

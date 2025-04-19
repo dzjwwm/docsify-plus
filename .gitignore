@@ -13,6 +13,8 @@ bin-release/
 *.swf
 *.air
 *.ipa
+nohup.out
+output.txt
 # *.apk
 
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
