@@ -85,6 +85,3 @@
   - [📃 1.安装](contents/APP/1.安装.md)
   - [📃 2.无线连接 adb](contents/APP/2.无线连接adb.md)
   - [📃 3.UiAutomator2 使用](contents/APP/3.UiAutomator2使用.md)
-- [📁 自媒体](contents/自媒体/README.md)
-  - [📃 1.素材网站](contents/自媒体/1.素材网站.md)
-  - [📃 2.微头条](contents/自媒体/2.微头条.md)
